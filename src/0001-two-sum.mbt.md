@@ -1,15 +1,15 @@
 ---
 difficulty: Easy
-moonbit: 
-  deps:
-title: Two Sum
+verified: true
 ---
 
 # Two Sum
 
-Given an array of integers `nums` and an integer `target`, return _indices of the two numbers such that they add up to `target`_.
+Given an array of integers `nums` and an integer `target`, return _indices of
+the two numbers such that they add up to `target`_.
 
-You may assume that each input would have **_exactly_ one solution**, and you may not use the _same_ element twice.
+You may assume that each input would have **_exactly_ one solution**, and you
+may not use the _same_ element twice.
 
 You can return the answer in any order.
 
@@ -31,25 +31,26 @@ You can return the answer in any order.
 
 **Constraints:**
 
-* `2 <= nums.length <= 10^4`
+* `2 <= nums.length <= 10⁴`
 * `-10^9 <= nums[i] <= 10^9`
 * `-10^9 <= target <= 10^9`
 * **Only one valid answer exists.**
 
-**Follow-up:** Can you come up with an algorithm that is less than `O(n2)` time complexity?
+**Follow-up:** Can you come up with an algorithm that is less than `O(n^2)` time
+complexity?
 
-# Suggested Approach
+## Suggested Approach
 
 ```mbt nocheck
-pub fn twoSum(nums : Array[Int], target : Int) -> Array[Int] {
+pub fn two_sum(nums : Array[Int], target : Int) -> Array[Int] {
   ...
 }
 ```
 
-# Solution
+## Solution
 
 ```mbt
-pub fn twoSum(nums : Array[Int], target : Int) -> Array[Int] {
+pub fn two_sum(nums : Array[Int], target : Int) -> Array[Int] {
   let num_to_index : @hashmap.T[Int, Int] = @hashmap.new()
   for i = 0; i < nums.length(); i = i + 1 {
     let current_num = nums[i]
@@ -63,27 +64,24 @@ pub fn twoSum(nums : Array[Int], target : Int) -> Array[Int] {
 }
 ```
 
-# Tests
+## Tests
 
 ```moonbit
-///
 test "example 1" {
   let nums = [2, 7, 11, 15]
   let target = 9
-  assert_eq(twoSum(nums, target), [0, 1])
+  assert_eq(two_sum(nums, target), [0, 1])
 }
 
-///
 test "example 2" {
   let nums = [3, 2, 4]
   let target = 6
-  assert_eq(twoSum(nums, target), [1, 2])
+  assert_eq(two_sum(nums, target), [1, 2])
 }
 
-///
 test "example 3" {
   let nums = [3, 3]
   let target = 6
-  assert_eq(twoSum(nums, target), [0, 1])
+  assert_eq(two_sum(nums, target), [0, 1])
 }
 ```
